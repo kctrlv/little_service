@@ -2,9 +2,9 @@
 
 
 <div class="commits">
-  <!-- <% @commits.each do |commit| %> -->
-    <!-- <div class="commit"> -->
-
-    <!-- </div> -->
-  <!-- <% end %> -->
+  <% @commits.each do |commit| %>
+    <div class="commit">
+      <%= link_to commit['url'], commit['message'] %>
+    </div>
+  <% end %>
 </div>
