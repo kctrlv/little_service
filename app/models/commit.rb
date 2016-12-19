@@ -4,5 +4,6 @@ class Commit < ApplicationRecord
     message = raw_commit['message']
     committer = raw_commit['committer']['name']
     create(sha: sha, message: message, committer: committer)
+    #test commit 1
   end
 end
