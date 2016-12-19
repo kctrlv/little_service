@@ -1,10 +1,26 @@
-<h1>GitBoard</h1>
+<h1 class='center'>GitBoard</h1>
+
+<div class="info row">
+  <div class="total_commits col s6 center">
+    <h3>Total Commits: </h3>
+    <%= @commits.count %>
+  </div>
+
+  <div class="committers col s6 center">
+    <h3>Committers: </h3>
+    <% @commits.pluck(:committer).uniq.each do |committer| %>
+      <p class='committer center'> <%= committer %> </p>
+    <% end %>
+  </div>
+</div>
 
 
 <div class="commits">
+  <h3>Latest Commits: </h3>
   <% @commits.each do |commit| %>
     <div class="commit">
-      <%= link_to commit['url'], commit['message'] %>
+      <span> <%= commit['message'] %></span>
+      <%= link_to commit['sha'], commit['url'] %>
     </div>
   <% end %>
 </div>
